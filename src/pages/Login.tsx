@@ -1,6 +1,7 @@
-// pages/Login.js
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import './Login.css';
 
 function Login() {
   const [password, setPassword] = useState("");
@@ -18,20 +19,22 @@ function Login() {
   };
 
   return (
-    <div className="container-fluid mt-5">
+    <div className="login-wrapper">
+    <div className="login-card">
       <h2>Admin Login</h2>
+      <p className="text-muted">Please enter the administrator password</p>
 
-      <form onSubmit={handleLogin} className="w-25">
+      <form onSubmit={handleLogin}>
         <input
           type="password"
-          className="form-control mb-2"
+          className="form-control mb-3"
           placeholder="Enter password"
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <button className="btn btn-dark">Login</button>
+        <button className="btn btn-login w-100">Login</button>
       </form>
     </div>
+  </div>
   );
 }
 
