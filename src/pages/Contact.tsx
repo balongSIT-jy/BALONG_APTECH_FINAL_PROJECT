@@ -1,28 +1,105 @@
 import { useState } from "react";
-import './Contact.css'
+import emailjs from "@emailjs/browser";
+import "./Contact.css";
+
+type FormData = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 function Contact() {
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<FormData>({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
 
-  const handleChange = (e) => {
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const validate = () => {
+    if (!form.name || !form.email || !form.message) {
+      return "Please fill in all fields.";
+    }
 
-    const existing = JSON.parse(localStorage.getItem("messages")) || [];
-    const updated = [...existing, form];
+    const emailPattern = /\S+@\S+\.\S+/;
 
-    localStorage.setItem("messages", JSON.stringify(updated));
+    if (!emailPattern.test(form.email)) {
+      return "Invalid email format.";
+    }
 
-    alert("Message sent!");
-
-    setForm({ name: "", email: "", message: "" });
+    return "";
   };
+
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const error = validate();
+
+  if (error) {
+    setStatus(error);
+    return;
+  }
+
+  setLoading(true);
+  setStatus("");
+
+  try {
+    // SEND EMAIL
+    const response = await emailjs.send(
+      import.meta.env.VITE_EMAIL_SERVICE_ID,
+      import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        from_email: form.email,
+        message: form.message,
+      },
+      import.meta.env.VITE_EMAIL_PUBLIC_KEY
+    );
+
+    console.log("SUCCESS:", response);
+
+    // SAVE TO LOCAL STORAGE
+    const existingMessages = JSON.parse(
+      localStorage.getItem("messages") || "[]"
+    );
+
+    const newMessage = {
+      name: form.name,
+      email: form.email,
+      message: form.message,
+    };
+
+    existingMessages.push(newMessage);
+
+    localStorage.setItem(
+      "messages",
+      JSON.stringify(existingMessages)
+    );
+
+    setStatus("Message sent successfully!");
+
+    // CLEAR FORM
+    setForm({
+      name: "",
+      email: "",
+      message: "",
+    });
+
+  } catch (error) {
+    console.error("ERROR:", error);
+    setStatus("Failed to send message.");
+  }
+
+  setLoading(false);
+};
 
   return (
     <section id="contact" className="container-fluid mt-5 mb-5 px-5">
@@ -55,7 +132,11 @@ function Contact() {
           placeholder="Your Message"
         ></textarea>
 
-        <button className="btn btn-dark">Send Message</button>
+        <button className="btn btn-dark" disabled={loading}>
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+
+        {status && <p className="mt-3">{status}</p>}
       </form>
     </section>
   );

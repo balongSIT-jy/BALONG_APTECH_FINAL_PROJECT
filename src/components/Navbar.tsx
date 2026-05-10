@@ -1,7 +1,7 @@
 import './Navbar.css'
 function Navbar() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+    <nav className="navbar navbar-expand-lg w-100 navbar-dark custom-navbar sticky-top">
       <div className="container">
         <a className="navbar-brand" href="#">My Portfolio</a>
 

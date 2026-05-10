@@ -1,22 +1,32 @@
-
 import { useEffect, useState } from "react";
 
+type Message = {
+  name: string;
+  email: string;
+  message: string;
+};
+
 function Admin() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("messages")) || [];
-    setMessages(data);
+    const savedMessages = JSON.parse(
+      localStorage.getItem("messages") || "[]"
+    );
+
+    setMessages(savedMessages);
+
+    console.log(savedMessages);
   }, []);
 
   return (
-    <div className="container-fluid mt-9">
+    <div className="container mt-5">
       <h2>Admin Panel</h2>
 
       {messages.length === 0 ? (
         <p>No messages yet.</p>
       ) : (
-        <table className="table">
+        <table className="table table-bordered">
           <thead>
             <tr>
               <th>Name</th>
