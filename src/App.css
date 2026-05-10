@@ -1,101 +1,19 @@
-/* General Reset & Typography */
-body {
-  margin: 0;
-  font-family: 'Inter', -apple-system, sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-}
-
-/* Navbar Styling */
-nav {
-  background-color: #00008b; /* Dark Blue */
-  padding: 1rem 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: white;
-}
-
-/* Hero Section (About Me) */
 .about-section {
-  background-color: #212529; /* Dark Gray */
-  color: white;
-  padding: 60px 10%;
+  background-color: #212529; /* Standard Bootstrap dark gray */
+  color: #f8f9fa;           /* Off-white text */
+  padding: 80px 10%;
   text-align: center;
 }
 
 .about-section h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+  font-size: 2.5rem;
+  color: #ffffff;
+  margin-bottom: 25px;
 }
 
 .about-section p {
   max-width: 800px;
   margin: 0 auto;
   line-height: 1.6;
-  font-size: 1.1rem;
-  opacity: 0.9;
-}
-
-/* Projects Section Layout */
-.projects-container {
-  padding: 50px 5%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Individual Project Cards */
-.project-card {
-  background: white;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.2s;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-}
-
-.project-button {
-  display: inline-block;
-  width: 100%;
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  text-decoration: none;
-  border-radius: 5px;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-/* Contact Form Styling */
-.contact-section {
-  padding: 50px 5%;
-  text-align: center;
-  background-color: white;
-}
-
-.contact-form {
-  max-width: 500px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.contact-form input, 
-.contact-form textarea {
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.contact-form textarea {
-  height: 120px;
+  opacity: 0.85; /* Makes the text easier on the eyes */
 }
