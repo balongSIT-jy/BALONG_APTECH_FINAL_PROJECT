@@ -17,7 +17,7 @@ export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
-  // Handle input change
+ 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -27,7 +27,7 @@ export default function Contact() {
     });
   };
 
-  // Validate inputs
+ 
   const validate = () => {
     if (!formData.name || !formData.email || !formData.message) {
       return "Please fill in all fields.";
@@ -39,7 +39,7 @@ export default function Contact() {
     return "";
   };
 
-  // Submit form
+  
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -57,12 +57,19 @@ export default function Contact() {
         import.meta.env.VITE_EMAIL_SERVICE_ID,
         import.meta.env.VITE_EMAIL_TEMPLATE_ID,
         {
-          from_name: formData.name,   // This must match {{from_name}} in your EmailJS template
-          from_email: formData.email, // This must match {{from_email}} in your EmailJS template
-          message: formData.message,   // This must match {{message}} in your EmailJS template
+          from_name: formData.name,   
+          from_email: formData.email, 
+          message: formData.message,  
         },
         import.meta.env.VITE_EMAIL_PUBLIC_KEY
       );
+      const existingMessages = JSON.parse(localStorage.getItem("messages") || "[]");
+      const newMessage = { 
+        name: formData.name, 
+        email: formData.email, 
+        message: formData.message 
+      };
+      localStorage.setItem("messages", JSON.stringify([...existingMessages, newMessage]));
 
       console.log("SUCCESS:", response);
       setStatus("Message sent successfully!");
