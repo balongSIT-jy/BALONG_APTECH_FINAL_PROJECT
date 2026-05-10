@@ -22,7 +22,7 @@ function Projects() {
         <div className="col-md-4">
           <div className="card p-3 shadow-sm">
             <h5>Project 2</h5>
-            <p>This is my Midterm Grading Lab Acvtivity 4</p>
+            <p>This is my Midterm Grading Lab Activity 4</p>
             <a href="https://balongsit-jy.github.io/MG_LAB4_BALONG/"
               target="_blank"
               rel="mg lab 4"
