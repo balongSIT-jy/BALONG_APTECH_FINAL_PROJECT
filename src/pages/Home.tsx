@@ -35,29 +35,12 @@ function Home() {
                 Jyra Lhe B. Balong
               </h1>
 
-              <p className="lead mt-4">
-                A passionate student developer focused on creating
-                modern, responsive, and user-friendly web applications
-                using React and Bootstrap.
-              </p>
+      
 
               <div className="mt-4">
-                <Button
-                  variant="info"
-                  size="lg"
-                  href="#projects"
-                  className="me-3"
-                >
-                  View Projects
-                </Button>
+                
 
-                <Button
-                  variant="outline-light"
-                  size="lg"
-                  href="#contact"
-                >
-                  Contact Me
-                </Button>
+                
               </div>
             </Col>
 
@@ -130,14 +113,10 @@ function Home() {
         }}
       >
         <Container>
-          <h5 className="fw-bold">My Portfolio</h5>
-
-          <p className="mb-1">
-            Built with React + Bootstrap
-          </p>
+          
 
           <small>
-            © 2025 Jane Rose Balong. All Rights Reserved.
+            © 2026 Jyra Lhe B. Balong. All Rights Reserved.
           </small>
         </Container>
       </footer>

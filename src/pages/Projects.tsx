@@ -11,7 +11,7 @@ function Projects() {
     {
       id: 2,
       title: "MG LAB 4",
-      description: "This is my Midtßerm Grading Lab Activity 4.",
+      description: "This is my Midterm Grading Lab Activity 4.",
       link: "https://balongsit-jy.github.io/MG_LAB4_BALONG/",
     },
     {
