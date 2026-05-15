@@ -46,7 +46,7 @@ function Home() {
 
             <Col md={6} className="text-center mt-5 mt-md-0">
               
-              
+              ``
             </Col>
           </Row>
         </Container>
