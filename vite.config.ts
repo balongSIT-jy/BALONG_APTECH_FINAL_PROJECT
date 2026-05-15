@@ -1,8 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
+
 export default defineConfig({
   plugins: [react()],
-  base: '/BALONG_APTECH_FINAL_PROJECT/'
+  base: '/.BALONG_APTECH_FINAL_PROJECT/',
+   build: {
+    cssMinify: 'esbuild' // Add this line
+  }
 })

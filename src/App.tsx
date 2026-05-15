@@ -1,27 +1,24 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Admin from "./pages/Admin";
-import Login from "./pages/Login";
-import Home from "./pages/Home";
-import ProtectedRoute from "./pages/ProtectedRoute";
+import './App.css'
+import About from './pages/About';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import { Navbar } from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
 
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <Admin />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </BrowserRouter>
-  );
+  return (
+    <>
+      <Router basename='/portfolio-app'>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/About" element={<About />} />
+          <Route path="/Contact" element={<Contact />} />
+        </Routes>
+      </Router>
+    </>
+  )
 }
 
 export default App;
