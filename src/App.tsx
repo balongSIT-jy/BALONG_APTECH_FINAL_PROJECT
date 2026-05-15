@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <Router basename='/portfolio-app'>
+      <Router basename='/BALONG_APTECH_FINAL_PROJECT'>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

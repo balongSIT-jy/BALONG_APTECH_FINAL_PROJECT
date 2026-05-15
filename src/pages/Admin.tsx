@@ -11,10 +11,15 @@ function Admin() {
 
   
   useEffect(() => {
-    const savedMessages = JSON.parse(localStorage.getItem("messages") || "[]");
+  try {
+    const data = localStorage.getItem("messages");
+    const savedMessages = data ? JSON.parse(data) : [];
     setMessages(savedMessages);
-    console.log("Loaded messages:", savedMessages);
-  }, []);
+  } catch (error) {
+    console.error("Failed to parse messages", error);
+    setMessages([]);
+  }
+}, []);
 
  
   const clearMessages = () => {
