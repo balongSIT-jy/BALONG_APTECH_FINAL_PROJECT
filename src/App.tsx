@@ -6,9 +6,9 @@ import { Navbar } from 'react-bootstrap';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
-
   return (
     <>
+      {/* Change from /portfolio-app to /BALONG_APTECH_FINAL_PROJECT */}
       <Router basename='/BALONG_APTECH_FINAL_PROJECT'>
         <Navbar />
         <Routes>
