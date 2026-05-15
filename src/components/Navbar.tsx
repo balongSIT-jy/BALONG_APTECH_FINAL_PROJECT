@@ -1,26 +1,31 @@
-import './Navbar.css'
-function Navbar() {
-  return (
-    <nav className="navbar navbar-expand-lg w-100 navbar-dark custom-navbar sticky-top">
-      <div className="container">
-        <a className="navbar-brand" href="#">My Portfolio</a>
+import { Navbar, Nav, Container } from "react-bootstrap";
 
-        <div>
-          <ul className="navbar-nav ms-auto">
-            <li className="nav-item">
-              <a className="nav-link" href="#about">About</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#projects">Projects</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+function NavigationBar() {
+  return (
+    <Navbar
+      bg="dark"
+      variant="dark"
+      expand="lg"
+      sticky="top"
+      className="shadow"
+    >
+      <Container>
+        <Navbar.Brand className="fw-bold text-info">
+          My Portfolio
+        </Navbar.Brand>
+
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#about">About</Nav.Link>
+            <Nav.Link href="#projects">Projects</Nav.Link>
+            <Nav.Link href="#contact">Contact</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default NavigationBar;

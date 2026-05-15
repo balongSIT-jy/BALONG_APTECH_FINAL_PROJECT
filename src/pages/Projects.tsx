@@ -1,48 +1,66 @@
+import { Table, Button, Container } from "react-bootstrap";
 
 function Projects() {
+  const projects = [
+    {
+      id: 1,
+      title: "MG LAB 5",
+      description: "This is my Midterm Grading Lab Activity 5.",
+      link: "https://balongsit-jy.github.io/MG_LAB5_BALONG/",
+    },
+    {
+      id: 2,
+      title: "MG LAB 4",
+      description: "This is my Midtßerm Grading Lab Activity 4.",
+      link: "https://balongsit-jy.github.io/MG_LAB4_BALONG/",
+    },
+    {
+      id: 3,
+      title: "Contact with Gmail",
+      description: "This is my Final Lab Activity 1.",
+      link: "https://balongsit-jy.github.io/aptech_final_contact_with_gmail/",
+    },
+  ];
+
   return (
-    <section id="projects" className="container-fluid p-0">
-      <h3>Projects</h3>
+    <section id="projects" className="py-5">
+      <Container>
+        <h2 className="text-center mb-4">My Projects</h2>
 
-      <div className="row">
-        <div className="col-md-4">
-          <div className="card p-3 shadow-sm">
-            <h5>Project 1</h5>
-            <p>This is my Midterm Grading Lab Acvtivity 5</p>
-            <a href="https://balongsit-jy.github.io/MG_LAB5_BALONG/"
-              target="_blank"
-              rel="mg lab 5"
-              className="btn btn-primary"
-            >MG LAB 5</a>
-            <p>
-            </p>
-          </div>
-        </div>
+        <Table striped bordered hover responsive className="shadow-sm">
+          <thead className="table-dark">
+            <tr>
+              <th>#</th>
+              <th>Project Title</th>
+              <th>Description</th>
+              <th>Live Demo</th>
+            </tr>
+          </thead>
 
-        <div className="col-md-4">
-          <div className="card p-3 shadow-sm">
-            <h5>Project 2</h5>
-            <p>This is my Midterm Grading Lab Activity 4</p>
-            <a href="https://balongsit-jy.github.io/MG_LAB4_BALONG/"
-              target="_blank"
-              rel="mg lab 4"
-              className="btn btn-primary"
-            >MG LAB 4</a>
-          </div>
-        </div>
+          <tbody>
+            {projects.map((project) => (
+              <tr key={project.id}>
+                <td>{project.id}</td>
 
-        <div className="col-md-4">
-          <div className="card p-3 shadow-sm">
-            <h5>Project 3</h5>
-            <p>This is my Final Lab Activity 1</p>
-            <a href="https://balongsit-jy.github.io/aptech_final_contact_with_gmail/"
-              target="_blank"
-              rel="contact with gmail"
-              className="btn btn-primary"
-            >Contact with Gmail</a>
-          </div>
-        </div>
-      </div>
+                <td>{project.title}</td>
+
+                <td>{project.description}</td>
+
+                <td>
+                  <Button
+                    variant="primary"
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Visit Project
+                  </Button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </Container>
     </section>
   );
 }
